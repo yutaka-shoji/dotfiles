@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -u
-DOT_DIRECTORY="${HOME}/.dotfiles"
+DOT_DIRECTORY="${HOME}/repos/dotfiles"
 
 echo "LINK DOTFILES"
 
