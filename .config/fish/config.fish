@@ -3,6 +3,8 @@ if test -f ~/.config/fish/config.fish.local
   source ~/.config/fish/config.fish.local
 end
 
+set fish_greeting
+
 # aliases
 alias vi='vim'
 
