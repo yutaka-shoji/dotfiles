@@ -99,3 +99,31 @@ autocmd VimEnter * match FullWidthSpace /　/
 " カラースキームの設定
 colorscheme solarized
 set background=light
+
+" vim-plug (https://github.com/junegunn/vim-plug)
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+"
+" Black, python code formatter (https://github.com/psf/black)
+Plug 'psf/black', { 'branch': 'stable' }
+Plug 'dense-analysis/ale'
+
+call plug#end()
+
+" flake8
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_post_args='--ignore=E203'
+let g:ale_linters = {'python': ['flake8']}
+
+" black
+let g:ale_fixers = {
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'python': ['black', 'isort'],
+      \ }
+let g:ale_fix_on_save = 1
