@@ -85,6 +85,8 @@ P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 --
 -- change ; and : in normal mode
+vim.api.nvim_set_keymap('v', ';', ':', { noremap = true })
+vim.api.nvim_set_keymap('v', ':', ';', { noremap = true })
 vim.api.nvim_set_keymap('n', ';', ':', { noremap = true })
 vim.api.nvim_set_keymap('n', ':', ';', { noremap = true })
 
@@ -95,7 +97,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
