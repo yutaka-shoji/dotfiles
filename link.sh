@@ -21,5 +21,7 @@ done
 # fish
 ln -snfv ${DOT_DIRECTORY}/.config/fish/functions/* ${HOME}/.config/fish/functions/
 ln -snfv ${DOT_DIRECTORY}/.config/fish/config.fish ${HOME}/.config/fish/config.fish
+# nvim
+ln -snfv ${DOT_DIRECTORY}/.config/nvim ${HOME}/.config/nvim
 
 echo "DONE LINK"

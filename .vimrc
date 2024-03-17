@@ -94,11 +94,11 @@ set laststatus=2
 
 " https://qiita.com/okateim/items/bc48d9b178e955eb12cb
 " 全角スペースの背景を白に変更
-autocmd Colorscheme * highlight FullWidthSpace ctermbg=black
+autocmd Colorscheme * highlight FullWidthSpace ctermbg=white
 autocmd VimEnter * match FullWidthSpace /　/
 " カラースキームの設定
 colorscheme solarized
-set background=light
+set background=dark
 
 " vim-plug (https://github.com/junegunn/vim-plug)
 call plug#begin()

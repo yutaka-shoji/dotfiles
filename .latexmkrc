@@ -1,21 +1,21 @@
 #!/usr/bin/env perl
-$latex            = 'platex -halt-on-error';
-$latex_silent     = 'platex -halt-on-error -interaction=batchmode';
-$bibtex           = 'pbibtex';
-$biber            = 'biber -u -U --output_safechars';
-$dvipdf           = 'dvipdfmx %O -o %D %S';
+$lualatex         = 'lualatex -halt-on-error %O -synctex=1 %S';
+$latex            = 'uplatex -halt-on-error';
+$latex_silent     = 'uplatex -halt-on-error -interaction=batchmode';
+$bibtex           = 'upbibtex %O %B';
 $makeindex        = 'mendex %O -o %D %S';
-$max_repeat       = 5;
-$pdf_mode   = 3; # generates pdf via dvipdfmx
+$biber            = 'biber %O -E=utf8 -u -U --output_safechars %B';
+$dvipdf           = 'dvipdfmx %O -o %D %S';
 
-# Prevent latexmk from removing PDF after typeset.
-# This enables Skim to chase the update in PDF automatically.
+$pdf_mode         = 4; # generates pdf via dvipdfmx
+
 $pvc_view_file_via_temporary = 0;
-
-# Use Skim as a previewer
-$pdf_previewer    = "open -ga Preview.app";
+$max_repeat       = 5;
 
 add_cus_dep("nlo", "nls", 0, "nlo2nls");
 sub nlo2nls {
         system("makeindex $_[0].nlo -s nomencl.ist -o $_[0].nls -t $_[0].nlg");
 }
+
+$aux_dir          = "out/";
+$out_dir          = "out/";
