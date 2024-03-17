@@ -20,4 +20,14 @@ return {
     },
     config = true,
   },
+  {
+    'kylechui/nvim-surround',
+    version = 'v2.1.5', -- Use for stability; omit to use `main` branch for the latest features
+    event = 'VeryLazy',
+    config = function()
+      require('nvim-surround').setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
+  },
 }
