@@ -28,9 +28,12 @@ vim.opt.rtp:prepend(lazypath)
 --  To update plugins, you can run
 --    :Lazy update
 --
-require('lazy').setup({
-  { import = 'custom.plugins' },
-}, {
+if vim.g.vscode then
+  local plugins = { import = 'custom.plugins.common' }
+else
+  local plugins = { import = 'custom.plugins' }
+end
+require('lazy').setup(plugins, {
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons otherwise define a unicode icons table
