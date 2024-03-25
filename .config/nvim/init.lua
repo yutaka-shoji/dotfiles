@@ -1,3 +1,4 @@
+vim.lsp.set_log_level "debug"
 -- [[ Envs ]]
 require 'custom.envs'
 -- [[ Options ]]

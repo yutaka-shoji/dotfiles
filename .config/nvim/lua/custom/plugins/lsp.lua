@@ -44,7 +44,7 @@ return {
       root_dir = require('lspconfig').util.find_git_ancestor,
       init_options = {
         settings = {
-          args = {"--select","ALL"}
+          args = { "--select", "ALL" }
         }
       }
     }
@@ -67,17 +67,22 @@ return {
       },
     }
     -- matlab_ls
+    local matlab_ls_path = os.getenv("MATLAB_LANGUAGE_SERVER_PATH")
+    local matlab_root = os.getenv("MATLAB_ROOT")
     lspconfig.matlab_ls.setup {
+      cmd = { matlab_ls_path .. "matlab-language-server.cmd", "--stdio" },
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
       settings = {
         matlab = {
-          indexWorkspace = true,
-          installPath = "$MATLAB_ROOT", -- might need to change this
+          indexWorkspace = false,
+          installPath = matlab_root,
           matlabConnectionTiming = "onStart",
           telemetry = false,
         },
       },
+      single_file_support = true,
+      root_dir = require('lspconfig').util.find_git_ancestor,
     }
 
     -- Use LspAttach autocommand to only map the following keys
