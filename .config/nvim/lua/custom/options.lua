@@ -1,3 +1,5 @@
+-- lang
+vim.cmd('language en_US')
 -- Line Numbers
 vim.opt.number = true
 -- vim.opt.relativenumber = true
